@@ -1,3 +1,12 @@
+def LCM(a, b):
+    m = a * b
+    while a != 0 and b != 0:
+        if a > b:
+            a %= b
+        else:
+            b %= a
+    return(m // (a + b))
+
 print('Введите числитель первой дроби: ')
 numerator1 = int(input())
 print('Введите знаменатель первой дроби: ')
