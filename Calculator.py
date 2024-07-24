@@ -7,5 +7,9 @@ numerator2 = input()
 print('Введите знаменатель второй дроби: ')
 denominator2 = input()
 
+print('Выбирите опирацию: ')
+print('1 - опирация сложения\n 2 - опирация вычитания\n')
+choise = input()
+
 print('Ваши дроби: ')
 print('\n', numerator1 + '     ' + numerator2, '\n', '-' + '     ' + '-', '\n', denominator1+ '     ' + denominator2)
