@@ -23,3 +23,14 @@ def difference(numerator1, denominator1, numerator2, denominator2):
     else:
         resultDen = LCM(denominator1, denominator2) 
         resultNum = numerator1*(resultDen//denominator1) - numerator2*(resultDen//denominator2) 
+        return resultNum, resultDen
+    
+def multiplication(numerator1, denominator1, numerator2, denominator2):
+    resultNum = numerator1 * numerator2
+    resultDen = denominator1 * denominator2
+    return resultNum, resultDen
+
+def dividing(numerator1, denominator1, numerator2, denominator2):
+    resultNum = numerator1 * denominator2
+    resultDen = denominator1 * numerator2
+    return resultNum, resultDen
