@@ -7,6 +7,15 @@ def LCM(a, b):
             b %= a
     return(m // (a + b))
 
+
+def GCD(a, b):
+    while a != 0 and b != 0:
+        if a > b:
+            a %= b
+        else:
+            b %= a
+    return (a + b)
+
 def sum(numerator1, denominator1, numerator2, denominator2):
     if(denominator1 == denominator2):
         resultNum = numerator1 + numerator2
