@@ -27,4 +27,11 @@ elif(choise == '/'):
     Num, Den = functions.dividing(numerator1, denominator1, numerator2, denominator2)   
 print('Результат ')
 print('\n', numerator1,  '     ',  numerator2, '     ',  Num, '\n', '-',  ' ', choise, '  ',  '-',  '  =  ',  '-', '\n', denominator1, '     ', denominator2, '     ', Den)
- 
+
+Num, Den = functions.reducing_a_fraction(Num, Den)
+
+print('Результат ')
+print('\n', numerator1,  '     ',  numerator2, '     ',  Num, '\n', '-',  ' ', choise, '  ',  '-',  '  =  ',  '-', '\n', denominator1, '     ', denominator2, '     ', Den)
+
+
+
