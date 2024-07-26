@@ -31,7 +31,7 @@ print('\n', numerator1,  '     ',  numerator2, '     ',  Num, '\n', '-',  ' ', c
 ResultNum, ResultDen = functions.reducing_a_fraction(Num, Den)
 
 print('Результат сокращения: ')
-print('\n', Num, '   ', ResultNum, '\n',  '-', ' = ', '-', '\n',  Den, '   ', ResultDen)
+print('\n', Num, '   ', ResultNum, '\n',  '-', '  =  ', '-', '\n',  Den, '   ', ResultDen)
 
 
 

@@ -37,7 +37,7 @@ def difference(numerator1, denominator1, numerator2, denominator2): ##Опера
     else:
         resultDen = LCM(denominator1, denominator2) ## Сложение дробей с разным знаминателем
         resultNum = numerator1*(resultDen//denominator1) - numerator2*(resultDen//denominator2) 
-        return resultNum, resultDen
+    return resultNum, resultDen
     
 def multiplication(numerator1, denominator1, numerator2, denominator2): ## Умножение дробей
     resultNum = numerator1 * numerator2
