@@ -1,29 +1,58 @@
 import unittest
-import functions
+from functions import *
 
 class Test_Functions(unittest.TestCase):
     def test_LCM(self):
-        self.assertEqual(functions.LCM(36, 48), 144)
-    
+        self.assertEqual(LCM(36, 48), 144)
+        self.assertRaises(ZeroDivisionError, LCM, 0, 0)
+        self.assertRaises(ValueError, LCM, "a", 2)
+        self.assertRaises(ValueError, LCM, [2], 2)
+        self.assertRaises(ValueError, LCM, None, None)
+
     def test_GCD(self):
-        self.assertEqual(functions.GCD(36, 48), 12)
+        self.assertEqual(GCD(36, 48), 12)
+        self.assertRaises(ZeroDivisionError, GCD, 0, 0)
+        self.assertRaises(ValueError, GCD, "a", 2)
+        self.assertRaises(ValueError, GCD, [2], 2)
+        self.assertRaises(ValueError, GCD, None, None)
+        
+
 
     def test_reducing_a_fraction(self):
-        self.assertEqual(functions.reducing_a_fraction(36, 48), (3, 4))
+        self.assertEqual(reducing_a_fraction(36, 48), (3, 4))
+        self.assertEqual(reducing_a_fraction(1, 1), (1, 1))
+        self.assertRaises(ZeroDivisionError, reducing_a_fraction, 0, 0)
+        self.assertRaises(ValueError, reducing_a_fraction, "a", 2)
+        self.assertRaises(ValueError, reducing_a_fraction, [2], 2)
+        self.assertRaises(ValueError, reducing_a_fraction, None, None)
+
 
     def test_sum(self):
-        self.assertEqual(functions.sum(4, 10, 3, 10), (7, 10))
-        self.assertEqual(functions.sum(5, 2, 4, 10), (29, 10))
+        self.assertEqual(sum(4, 10, 3, 10), (7, 10))
+        self.assertEqual(sum(5, 2, 4, 10), (29, 10))
+        self.assertRaises(ValueError, sum, "a", 2, 2, 2)
+        self.assertRaises(ValueError, sum, 2, [2], 2, 2)
+        self.assertRaises(ValueError, sum, None, None, None, None)
     
     def test_difference(self):
-        self.assertEqual(functions.difference(4, 10, 3, 10), (1, 10))
-        self.assertEqual(functions.difference(5, 2, 4, 10), (21, 10))
+        self.assertEqual(difference(4, 10, 3, 10), (1, 10))
+        self.assertEqual(difference(5, 2, 4, 10), (21, 10))
+        self.assertRaises(ValueError, difference, "a", 2, 2, 2)
+        self.assertRaises(ValueError, difference, 2, [2], 2, 2)
+        self.assertRaises(ValueError, difference, None, None, None, None)
 
     def test_multiplication(self):
-        self.assertEqual(functions.multiplication(2, 5, 5, 2), (10, 10))
+        self.assertEqual(multiplication(2, 5, 5, 2), (10, 10))
+        self.assertRaises(ValueError, multiplication, "a", 2, 2, 2)
+        self.assertRaises(ValueError, multiplication, 2, [2], 2, 2)
+        self.assertRaises(ValueError, multiplication, None, None, None, None)
 
     def test_dividing(self):
-        self.assertEqual(functions.dividing(2, 5, 2, 5), (10, 10))
+        self.assertEqual(dividing(2, 5, 2, 5), (10, 10))
+        self.assertRaises(ValueError, dividing, "a", 2, 2, 2)
+        self.assertRaises(ValueError, dividing, 2, [2], 2, 2)
+        self.assertRaises(ValueError, dividing, None, None, None, None)
+        
 
 if __name__ == "__main__":
   unittest.main()
