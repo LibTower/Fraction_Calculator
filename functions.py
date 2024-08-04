@@ -41,7 +41,7 @@ def reducing_a_fraction_decorator(funct): ## Сокращение дроби ч�
         return Numerator, Denominator
     return reducing_a_fraction
 
-
+@reducing_a_fraction_decorator
 def sum(numerator1, denominator1, numerator2, denominator2): ##Операция сложения
     if type(numerator1) not in [int] or type(numerator2) not in [int] or type(denominator1) not in [int] or type(denominator2) not in [int]:
         raise ValueError('Было введено не число') 
@@ -53,6 +53,7 @@ def sum(numerator1, denominator1, numerator2, denominator2): ##Операция 
         resultNum = numerator1*(resultDen//denominator1) + numerator2*(resultDen//denominator2) 
     return resultNum, resultDen
 
+@reducing_a_fraction_decorator
 def difference(numerator1, denominator1, numerator2, denominator2): ##Операция вычитания
     if type(numerator1) not in [int] or type(numerator2) not in [int] or type(denominator1) not in [int] or type(denominator2) not in [int]:
         raise ValueError('Было введено не число') 
@@ -63,7 +64,8 @@ def difference(numerator1, denominator1, numerator2, denominator2): ##Опера
         resultDen = LCM(denominator1, denominator2) ## Сложение дробей с разным знаминателем
         resultNum = numerator1*(resultDen//denominator1) - numerator2*(resultDen//denominator2) 
     return resultNum, resultDen
-    
+
+@reducing_a_fraction_decorator    
 def multiplication(numerator1, denominator1, numerator2, denominator2): ## Умножение дробей
     if type(numerator1) not in [int] or type(numerator2) not in [int] or type(denominator1) not in [int] or type(denominator2) not in [int]:
         raise ValueError('Было введено не число') 
@@ -71,6 +73,7 @@ def multiplication(numerator1, denominator1, numerator2, denominator2): ## Ум�
     resultDen = denominator1 * denominator2
     return resultNum, resultDen
 
+@reducing_a_fraction_decorator
 def dividing(numerator1, denominator1, numerator2, denominator2): ## Деление дробей
     if type(numerator1) not in [int] or type(numerator2) not in [int] or type(denominator1) not in [int] or type(denominator2) not in [int]:
         raise ValueError('Было введено не число') 

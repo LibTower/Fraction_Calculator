@@ -28,10 +28,5 @@ elif(choise == '/'):
 print('Результат ')
 print('\n', numerator1,  '     ',  numerator2, '     ',  Num, '\n', '-',  ' ', choise, '  ',  '-',  '  =  ',  '-', '\n', denominator1, '     ', denominator2, '     ', Den)
 
-ResultNum, ResultDen = functions.reducing_a_fraction(Num, Den)
-
-print('Результат сокращения: ')
-print('\n', Num, '   ', ResultNum, '\n',  '-', '  =  ', '-', '\n',  Den, '   ', ResultDen)
-
 
 
