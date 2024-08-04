@@ -28,16 +28,19 @@ def GCD(a, b): ## Поиск наибольшего общего делител�
                 b %= a
         return (a + b)
 
-def reducing_a_fraction(Numerator, Denominator): ## Сокращение дроби через НОД
-    if type(Numerator) not in [int] or type(Denominator) not in [int]:
-        raise ValueError('Было введено не число') 
-    gcd = GCD(Numerator, Denominator)
-    if(gcd == 0):
-        raise ZeroDivisionError('наибольший общий делитель равен 0')
-    else:
-        Numerator//=gcd
-        Denominator//=gcd
+
+def reducing_a_fraction_decorator(funct): ## Сокращение дроби через НОД
+    def reducing_a_fraction (*args, **kwargs):
+        Numerator, Denominator  = funct(*args, **kwargs)
+        gcd = GCD(Numerator, Denominator)
+        if(gcd == 0):
+            raise ZeroDivisionError('наибольший общий делитель равен 0')
+        else:
+            Numerator//=gcd
+            Denominator//=gcd
         return Numerator, Denominator
+    return reducing_a_fraction
+
 
 def sum(numerator1, denominator1, numerator2, denominator2): ##Операция сложения
     if type(numerator1) not in [int] or type(numerator2) not in [int] or type(denominator1) not in [int] or type(denominator2) not in [int]:
