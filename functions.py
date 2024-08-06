@@ -40,8 +40,8 @@ class Calculator:
             return (a + b)
 
 
-    def __reducing_a_fraction_decorator(self, funct): ## Сокращение дроби через НОД
-        def __reducing_a_fraction (*args, **kwargs):
+    def reducing_a_fraction_decorator(self, funct): ## Сокращение дроби через НОД
+        def reducing_a_fraction (*args, **kwargs):
             Numerator, Denominator  = funct(*args, **kwargs)
             gcd = self.__GCD(Numerator, Denominator)
             if(gcd == 0):
@@ -50,11 +50,11 @@ class Calculator:
                 Numerator//=gcd
                 Denominator//=gcd
             return Numerator, Denominator
-        return __reducing_a_fraction
+        return reducing_a_fraction
 
-    @__reducing_a_fraction_decorator
-    def __sum(self): ##Операция сложения
-        if type(self.__numerator1) not in [int] or type(self.__numerator2) not in [int] or type(self.denominator1) not in [int] or type(self.denominator2) not in [int]:
+    @reducing_a_fraction_decorator
+    def sum(self): ##Операция сложения
+        if type(self.__numerator1) not in [int] or type(self.__numerator2) not in [int] or type(self.__denominator1) not in [int] or type(self.__denominator2) not in [int]:
             raise ValueError('Было введено не число') 
         if(self.__denominator1 == self.__denominator2):
             self.__ResultNum = self.__numerator1 + self.__numerator2 ## Сложение дробей с одним знаминателем 
@@ -62,9 +62,10 @@ class Calculator:
         else:
             self.__ResultDen = self.__LCM(self.__denominator1, self.__denominator2) ## Сложение дробей с разными знаминателями
             self.__ResultNum = self.__numerator1*(self.__ResultDen//self.__denominator1) + self.__numerator2*(self.__ResultDen//self.__denominator2) 
+        return self.__ResultNum, self.__ResultDen
 
-    @__reducing_a_fraction_decorator
-    def __difference(self): ##Операция вычитания
+    @reducing_a_fraction_decorator
+    def difference(self): ##Операция вычитания
         if type(self.__numerator1) not in [int] or type(self.__numerator2) not in [int] or type(self.__denominator1) not in [int] or type(self.__denominator2) not in [int]:
             raise ValueError('Было введено не число') 
         if(self.__denominator1 == self.__denominator2):
@@ -73,28 +74,38 @@ class Calculator:
         else:
             self.__ResultDen = self.__LCM(self.__denominator1, self.__denominator2) ## Сложение дробей с разным знаминателем
             self.__ResultNum = self.__numerator1*(self.__ResultDen//self.__denominator1) - self.__numerator2*(self.__ResultDen//self.__denominator2) 
+        return self.__ResultNum, self.__ResultDen
 
-    @__reducing_a_fraction_decorator    
-    def __multiplication(self): ## Умножение дробей
+    @reducing_a_fraction_decorator    
+    def multiplication(self): ## Умножение дробей
         if type(self.__numerator1) not in [int] or type(self.__numerator2) not in [int] or type(self.__denominator1) not in [int] or type(self.__denominator2) not in [int]:
             raise ValueError('Было введено не число') 
         self.__ResultNum = self.__numerator1 * self.__numerator2
         self.__ResultDen = self.__denominator1 * self.__denominator2
+        return self.__ResultNum, self.__ResultDen
 
-    @__reducing_a_fraction_decorator
-    def __dividing(self): ## Деление дробей
+    @reducing_a_fraction_decorator
+    def dividing(self): ## Деление дробей
         if type(self.__numerator1) not in [int] or type(self.__numerator2) not in [int] or type(self.__denominator1) not in [int] or type(self.__denominator2) not in [int]:
             raise ValueError('Было введено не число') 
         self.__ResultNum = self.__numerator1 * self.__denominator2
         self.__ResultDen = self.__denominator1 * self.__numerator2
+        return self.__ResultNum, self.__ResultDen
+    
+    def input(self):
+        print("Ведите числитель, а затем знаминатель первой дроби: ")
+        self.__numerator1 = int(input())
+        self.__denominator1 = int(input())
+        print("Ведите числитель, а затем знаминатель второй дроби: ")
+        self.__numerator2 = int(input())
+        self.__denominator2 = int(input())
 
-    def input(self, n1, d1, n2, d2):
-        self.__numerator1 = n1
-        self.__denominator1 = d1
-
-        self.__numerator2 = n2
-        self.__denominator2 = d2
+        print('Ваши дроби: ')
+        print('\n', self.__numerator1, '     ', self.__numerator2, '\n', '-', '     ', '-', '\n', self.__denominator1, '     ', self.__denominator2)
 
 
     def output(self):
-        return self.__ResultNum, self.__ResultDen
+        print('Результат ')
+        print('\n', self.__numerator1,  '     ',  self.__numerator2, '     ',  self.__ResultNum, '\n', '-',  '     ',  '-',  '  =  ',  '-', '\n', self.__denominator1, '     ', self.__denominator2, '     ', self.__ResultDen)
+
+    
