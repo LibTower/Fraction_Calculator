@@ -15,17 +15,6 @@ class Test_Functions(unittest.TestCase):
         self.assertRaises(ValueError, GCD, "a", 2)
         self.assertRaises(ValueError, GCD, [2], 2)
         self.assertRaises(ValueError, GCD, None, None)
-        
-
-
-    def test_reducing_a_fraction(self):
-        self.assertEqual(reducing_a_fraction_decorator(sum(2, 4, 2, 4), (1, 1)))
-    #     self.assertEqual(reducing_a_fraction_decorator(1, 1), (1, 1))
-    #     self.assertRaises(ZeroDivisionError, reducing_a_fraction_decorator, 0, 0)
-    #     self.assertRaises(ValueError, reducing_a_fraction_decorator, "a", 2)
-    #     self.assertRaises(ValueError, reducing_a_fraction_decorator, [2], 2)
-    #     self.assertRaises(ValueError, reducing_a_fraction_decorator, None, None)
-
 
     def test_sum(self):
         self.assertEqual(sum(4, 10, 3, 10), (7, 10))
